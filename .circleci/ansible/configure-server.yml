@@ -1,4 +1,5 @@
 ---
+
 - name: "Configure infrastructure." 
   hosts: web
   user: ubuntu
