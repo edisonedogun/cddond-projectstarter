@@ -172,7 +172,7 @@ jobs:
       - checkout
       - add_ssh_keys: 
           fingerprints: 
-            - "83:17:69:b9:43:5b:ac:43:0a:49:e0:dd:31:ef:fe:b3"
+            - "19:be:d8:53:f0:2f:36:9b:f0:39:37:ce:14:65:1d:5d"
       - attach_workspace:
           at: ~/
       - run:
@@ -356,7 +356,7 @@ jobs:
   #     - checkout
   #     - add_ssh_keys: 
   #           fingerprints: 
-  #              - "83:17:69:b9:43:5b:ac:43:0a:49:e0:dd:31:ef:fe:b3"
+  #              - "19:be:d8:53:f0:2f:36:9b:f0:39:37:ce:14:65:1d:5d"
   #     - attach_workspace:
   #         at: ~/
   #     - restore_cache:
@@ -407,7 +407,7 @@ jobs:
     steps:
       - checkout 
       - add_ssh_keys: 
-          fingerprints: ["83:17:69:b9:43:5b:ac:43:0a:49:e0:dd:31:ef:fe:b3"]
+          fingerprints: ["19:be:d8:53:f0:2f:36:9b:f0:39:37:ce:14:65:1d:5d"]
       - run:
           name: Install dependencies
           command: |
@@ -550,7 +550,7 @@ jobs:
     steps:
       - checkout
       - add_ssh_keys:
-          fingerprints: ["83:17:69:b9:43:5b:ac:43:0a:49:e0:dd:31:ef:fe:b3"]  
+          fingerprints: ["19:be:d8:53:f0:2f:36:9b:f0:39:37:ce:14:65:1d:5d"]  
       - run:
           name: Install dependencies
           command: |
@@ -704,9 +704,11 @@ workflows:
           requires: [run-migrations]
       - deploy-backend:
           requires: [run-migrations]
+      # - prometheus-node-exporter:
+      #     requires: [deploy-backend]
       - smoke-test:
           requires: [deploy-backend, deploy-frontend]
       - cloudfront-update:
           requires: [smoke-test]
-      - cleanup:
-          requires: [cloudfront-update]
+      # - cleanup:
+      #     requires: [cloudfront-update]
